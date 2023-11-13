@@ -24,8 +24,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocationOn
@@ -107,9 +107,10 @@ fun SearchOrang() {
                         .align(alignment = Alignment.CenterStart),
                         onClick = {}) {
                         Icon(
-                            Icons.Filled.ArrowBack,
+                            Icons.AutoMirrored.Filled.ArrowBack,
                             "backIcon",
-                            tint = Color.White)
+                            tint = Color.White
+                        )
                     }
                     var perusahaan by rememberSaveable { mutableStateOf("") }
                     OutlinedTextField(
@@ -251,78 +252,78 @@ fun SearchOrang() {
                 }
             }
         },
-        bottomBar = {
-            BottomAppBar(
-                modifier = Modifier
-                    .border(BorderStroke(2.dp, Color.LightGray))
-                    .height(70.dp),
-
-                containerColor = Color(0xFFFFFFFF),
-                contentColor = MaterialTheme.colorScheme.primary,
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(5.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-
-                    ) {
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Home,
-                            contentDescription = "home",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Search,
-                            contentDescription = "search",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.AddCircle,
-                            contentDescription = "add",
-                            modifier = Modifier
-                                .requiredSize(
-                                    width = 55.dp,
-                                    height = 55.dp
-                                ),
-                            tint = Color(0xFF2493DC))
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Notifications,
-                            contentDescription = "notifications",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Person,
-                            contentDescription = "person",
-                            tint = Color.Gray)
-                    }
-
-                }
-            }
-        }
+//        bottomBar = {
+//            BottomAppBar(
+//                modifier = Modifier
+//                    .border(BorderStroke(2.dp, Color.LightGray))
+//                    .height(70.dp),
+//
+//                containerColor = Color(0xFFFFFFFF),
+//                contentColor = MaterialTheme.colorScheme.primary,
+//            ) {
+//                Row(
+//                    modifier = Modifier
+//                        .fillMaxSize()
+//                        .padding(5.dp),
+//                    horizontalArrangement = Arrangement.SpaceBetween,
+//                    verticalAlignment = Alignment.CenterVertically,
+//
+//                    ) {
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Home,
+//                            contentDescription = "home",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Search,
+//                            contentDescription = "search",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.AddCircle,
+//                            contentDescription = "add",
+//                            modifier = Modifier
+//                                .requiredSize(
+//                                    width = 55.dp,
+//                                    height = 55.dp
+//                                ),
+//                            tint = Color(0xFF2493DC))
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Notifications,
+//                            contentDescription = "notifications",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Person,
+//                            contentDescription = "person",
+//                            tint = Color.Gray)
+//                    }
+//
+//                }
+//            }
+//        }
     ) { innerPadding ->
         Column(
             modifier = Modifier
-                .padding(15.dp)//padding yang ditulis pada baris pertama modifier = margin
                 .verticalScroll(rememberScrollState())
                 .fillMaxSize()
+                .padding(15.dp)
                 .padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(
                 space = 16.dp

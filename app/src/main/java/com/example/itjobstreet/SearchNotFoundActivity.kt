@@ -26,15 +26,12 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -42,7 +39,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalTextStyle
@@ -54,8 +50,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -63,7 +57,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -95,7 +88,6 @@ class SearchNotFoundActivity : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable
 fun SearchNotFound() {
     Scaffold(
@@ -114,9 +106,10 @@ fun SearchNotFound() {
                         .align(alignment = Alignment.CenterStart),
                         onClick = {}) {
                         Icon(
-                            Icons.Filled.ArrowBack,
+                            Icons.AutoMirrored.Filled.ArrowBack,
                             "backIcon",
-                            tint = Color.White)
+                            tint = Color.White
+                        )
                     }
                     var perusahaan by rememberSaveable { mutableStateOf("") }
                     OutlinedTextField(
@@ -258,78 +251,78 @@ fun SearchNotFound() {
                 }
             }
         },
-        bottomBar = {
-            BottomAppBar(
-                modifier = Modifier
-                    .border(BorderStroke(2.dp, Color.LightGray))
-                    .height(70.dp),
-
-                containerColor = Color(0xFFFFFFFF),
-                contentColor = MaterialTheme.colorScheme.primary,
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(5.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-
-                    ) {
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Home,
-                            contentDescription = "home",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Search,
-                            contentDescription = "search",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.AddCircle,
-                            contentDescription = "add",
-                            modifier = Modifier
-                                .requiredSize(
-                                    width = 55.dp,
-                                    height = 55.dp
-                                ),
-                            tint = Color(0xFF2493DC))
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Notifications,
-                            contentDescription = "notifications",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Person,
-                            contentDescription = "person",
-                            tint = Color.Gray)
-                    }
-
-                }
-            }
-        }
+//        bottomBar = {
+//            BottomAppBar(
+//                modifier = Modifier
+//                    .border(BorderStroke(2.dp, Color.LightGray))
+//                    .height(70.dp),
+//
+//                containerColor = Color(0xFFFFFFFF),
+//                contentColor = MaterialTheme.colorScheme.primary,
+//            ) {
+//                Row(
+//                    modifier = Modifier
+//                        .fillMaxSize()
+//                        .padding(5.dp),
+//                    horizontalArrangement = Arrangement.SpaceBetween,
+//                    verticalAlignment = Alignment.CenterVertically,
+//
+//                    ) {
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Home,
+//                            contentDescription = "home",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Search,
+//                            contentDescription = "search",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.AddCircle,
+//                            contentDescription = "add",
+//                            modifier = Modifier
+//                                .requiredSize(
+//                                    width = 55.dp,
+//                                    height = 55.dp
+//                                ),
+//                            tint = Color(0xFF2493DC))
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Notifications,
+//                            contentDescription = "notifications",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Person,
+//                            contentDescription = "person",
+//                            tint = Color.Gray)
+//                    }
+//
+//                }
+//            }
+//        }
     ) { innerPadding ->
         Column(
             modifier = Modifier
-                .padding(15.dp)//padding yang ditulis pada baris pertama modifier = margin
                 .verticalScroll(rememberScrollState())
                 .fillMaxSize()
+                .padding(15.dp)
                 .padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(
                 space = 16.dp

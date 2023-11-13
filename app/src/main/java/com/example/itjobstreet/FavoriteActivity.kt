@@ -84,10 +84,10 @@ fun Favorite() {
                 ),
                 title =
                 {
-                        Text(
-                            "Favorite",
-                            color = Color.White,
-                        )
+                    Text(
+                        "Favorite",
+                        color = Color.White,
+                    )
                 },
                 navigationIcon = {
                     IconButton(onClick = {}) {
@@ -100,12 +100,10 @@ fun Favorite() {
             )
         },
     ) { innerPadding ->
-
-
         Column(modifier = Modifier
-            .padding(15.dp)//padding yang ditulis pada baris pertama modifier = margin
             .verticalScroll(rememberScrollState())
             .fillMaxSize()
+            .padding(15.dp)
             .padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(
                 space = 25.dp

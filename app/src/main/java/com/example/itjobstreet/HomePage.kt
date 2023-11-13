@@ -17,35 +17,27 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
-import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalTextStyle
@@ -57,8 +49,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -66,7 +56,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -96,10 +85,9 @@ class HomePage : ComponentActivity() {
         }
     }
 }
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
+
 @Composable
 fun HomePageShow() {
-
     Scaffold(
         topBar = {
             Column(
@@ -107,19 +95,24 @@ fun HomePageShow() {
                     .fillMaxWidth()
                     .background(color = Color(0xFF2493DC))
             ){
-                Box(modifier = Modifier
+                Box(
+                    modifier = Modifier
                     .padding(top= 5.dp)
                     .height(50.dp)
                     .fillMaxWidth()
                 ){
-                    IconButton(modifier = Modifier
-                        .align(alignment = Alignment.CenterStart),
-                        onClick = {}) {
+                    IconButton(
+                        modifier = Modifier
+                            .align(alignment = Alignment.CenterStart),
+                        onClick = {}
+                    ) {
                         Icon(
-                            Icons.Filled.ArrowBack,
+                            Icons.AutoMirrored.Filled.ArrowBack,
                             "backIcon",
-                            tint = Color.White)
+                            tint = Color.White
+                        )
                     }
+
                     var perusahaan by rememberSaveable { mutableStateOf("") }
                     OutlinedTextField(
                         value = perusahaan,
@@ -151,27 +144,20 @@ fun HomePageShow() {
                                 shape = RoundedCornerShape(20.dp)
                             )
                             .align(alignment = Alignment.Center)
-
                     )
-                    IconButton(modifier = Modifier
-                        .align(alignment = Alignment.CenterEnd),
-                        onClick = {}) {
-                        Icon(
-                            Icons.Filled.Favorite,
-                            "favorite",
-                            tint = Color.White)
-                    }
                 }
 
-                Row(modifier = Modifier.padding(start=15.dp),
+                Row(
+                    modifier = Modifier
+                        .padding(start=15.dp),
                     horizontalArrangement = Arrangement.Start,
                     verticalAlignment = Alignment.CenterVertically,
-                    )
-                {
+                ){
                     Icon(
                         imageVector = Icons.Filled.LocationOn,
                         contentDescription = "notifications",
-                        tint = Color.White)
+                        tint = Color.White
+                    )
 
                     var expanded by remember { mutableStateOf(false) }
                     var selectedItem by remember { mutableStateOf("Lokasi") }
@@ -185,6 +171,7 @@ fun HomePageShow() {
                             Icon(Icons.Default.ArrowDropDown, contentDescription = "",tint = Color.White)
                         }
                     }
+
                     DropdownMenu(expanded = expanded, onDismissRequest = { expanded=false }) {
                         listKota.forEach{
                             DropdownMenuItem(modifier=Modifier
@@ -199,6 +186,7 @@ fun HomePageShow() {
                         }
                     }
                 }
+
                 Row(
                     modifier = Modifier.padding(start=15.dp, end=15.dp, bottom=5.dp).fillMaxWidth(),
                     horizontalArrangement = Arrangement.Center,
@@ -211,17 +199,16 @@ fun HomePageShow() {
                         modifier = Modifier
                             .clip(shape = RoundedCornerShape(50.dp))
                             .padding(end=10.dp)
-
-
                     ){
                         Text(
                             text = "Rekomendasi",
                             color = Color(0xFF2493DC),
                             style = TextStyle(
-                                fontSize = 11.sp,
+                                fontSize = 13.sp,
                                 fontWeight = FontWeight.Bold),
                         )
                     }
+
                     Button(
                         onClick={},
                         border = BorderStroke(1.dp,Color.White),
@@ -233,133 +220,132 @@ fun HomePageShow() {
                             text = "Terbaru",
                             color = Color(0xFFFFFFFF),
                             style = TextStyle(
-                                fontSize = 11.sp,
-                                fontWeight = FontWeight.Bold),
+                                fontSize = 13.sp,
+                                fontWeight = FontWeight.Bold
+                            ),
                         )
-                    }
-                    var rExpanded by remember { mutableStateOf(false) }
-                    var rSelectedItem by remember { mutableStateOf("Rating") }
-                    val listRating = listOf("1", "2", "3",  "4", "5")
-
-                    Box{
-
-                        Button(onClick = { rExpanded = true },
-                            border = BorderStroke(1.dp,Color.White),
-                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2493DC)),
-                            modifier = Modifier
-                                .clip(shape = RoundedCornerShape(50.dp))
-                        ) {
-                            Row(
-                                horizontalArrangement = Arrangement.Start,
-                                verticalAlignment = Alignment.CenterVertically,)
-                            {
-                                Icon(
-                                    Icons.Filled.Star,
-                                    contentDescription = null, tint= Color(0xFFD4AF37)
-                                )
-                                Text(
-                                    text = "$rSelectedItem", color = Color(0xFFFFFFFF),
-                                    style = TextStyle(
-                                        fontSize = 11.sp,
-                                        fontWeight = FontWeight.Bold),
-                                )
-                            }
                         }
-                        DropdownMenu(expanded = rExpanded, onDismissRequest = { rExpanded=false }) {
-                            listRating.forEach{
+                        var rExpanded by remember { mutableStateOf(false) }
+                        var rSelectedItem by remember { mutableStateOf("Rating") }
+                        val listRating = listOf("1", "2", "3",  "4", "5")
 
-                                DropdownMenuItem(modifier=Modifier
-                                    .background(
-                                        color = Color(0xffffffff)
-                                    ),
-                                    leadingIcon = {
-                                        Icon(
-                                            Icons.Filled.Star,
-                                            contentDescription = null, tint= Color(0xFFD4AF37)
-                                        )
-                                    },
-                                    text = { Text(it, color = Color(0xFF2493DC) )},
-                                    onClick = {
-                                        rSelectedItem = it
-                                        rExpanded = false }
-                                )
+                        Box{
+                            Button(onClick = { rExpanded = true },
+                                border = BorderStroke(1.dp,Color.White),
+                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2493DC)),
+                                modifier = Modifier
+                                    .clip(shape = RoundedCornerShape(50.dp))
+                            ) {
+                                Row(
+                                    horizontalArrangement = Arrangement.Start,
+                                    verticalAlignment = Alignment.CenterVertically,)
+                                {
+                                    Icon(
+                                        Icons.Filled.Star,
+                                        contentDescription = null, tint= Color(0xFFD4AF37)
+                                    )
+                                    Text(
+                                        text = "$rSelectedItem", color = Color(0xFFFFFFFF),
+                                        style = TextStyle(
+                                            fontSize = 13.sp,
+                                            fontWeight = FontWeight.Bold),
+                                    )
+                                }
+                            }
+                            DropdownMenu(expanded = rExpanded, onDismissRequest = { rExpanded=false }) {
+                                listRating.forEach{
+
+                                    DropdownMenuItem(modifier=Modifier
+                                        .background(
+                                            color = Color(0xffffffff)
+                                        ),
+                                        leadingIcon = {
+                                            Icon(
+                                                Icons.Filled.Star,
+                                                contentDescription = null, tint= Color(0xFFD4AF37)
+                                            )
+                                        },
+                                        text = { Text(it, color = Color(0xFF2493DC) )},
+                                        onClick = {
+                                            rSelectedItem = it
+                                            rExpanded = false }
+                                    )
+                                }
                             }
                         }
                     }
                 }
-            }
         },
-        bottomBar = {
-            BottomAppBar(
-                modifier = Modifier
-                    .border(BorderStroke(2.dp, Color.LightGray))
-                    .height(70.dp),
-
-                containerColor = Color(0xFFFFFFFF),
-                contentColor = MaterialTheme.colorScheme.primary,
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(5.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-
-                    ) {
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Home,
-                            contentDescription = "home",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Search,
-                            contentDescription = "search",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.AddCircle,
-                            contentDescription = "add",
-                            modifier = Modifier
-                                .requiredSize(
-                                    width = 55.dp,
-                                    height = 55.dp
-                                ),
-                            tint = Color(0xFF2493DC))
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Notifications,
-                            contentDescription = "notifications",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Person,
-                            contentDescription = "person",
-                            tint = Color.Gray)
-                    }
-
-                }
-            }
-        }
+//        bottomBar = {
+//            BottomAppBar(
+//                modifier = Modifier
+//                    .border(BorderStroke(2.dp, Color.LightGray))
+//                    .height(70.dp),
+//
+//                containerColor = Color(0xFFFFFFFF),
+//                contentColor = MaterialTheme.colorScheme.primary,
+//            ) {
+//                Row(
+//                    modifier = Modifier
+//                        .fillMaxSize()
+//                        .padding(5.dp),
+//                    horizontalArrangement = Arrangement.SpaceBetween,
+//                    verticalAlignment = Alignment.CenterVertically,
+//
+//                    ) {
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Home,
+//                            contentDescription = "home",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Search,
+//                            contentDescription = "search",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.AddCircle,
+//                            contentDescription = "add",
+//                            modifier = Modifier
+//                                .requiredSize(
+//                                    width = 55.dp,
+//                                    height = 55.dp
+//                                ),
+//                            tint = Color(0xFF2493DC))
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Notifications,
+//                            contentDescription = "notifications",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Person,
+//                            contentDescription = "person",
+//                            tint = Color.Gray)
+//                    }
+//                }
+//            }
+//        }
     ) { innerPadding ->
         Column(modifier = Modifier
-            .padding(15.dp)//padding yang ditulis pada baris pertama modifier = margin
             .verticalScroll(rememberScrollState())
             .fillMaxSize()
+            .padding(15.dp)
             .padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(
                 space = 25.dp
@@ -960,9 +946,6 @@ fun HomePageShow() {
         }
     }
 }
-
-
-
 
 @Preview(widthDp = 360, heightDp = 800)
 @Composable

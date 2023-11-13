@@ -134,9 +134,9 @@ fun PostingLoker2() {
     ){ innerPadding ->
         Column(
             modifier = Modifier
-                .padding(15.dp)//padding yang ditulis pada baris pertama modifier = margin
                 .verticalScroll(rememberScrollState())
                 .fillMaxSize()
+                .padding(15.dp)
                 .padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(
                 space = 20.dp

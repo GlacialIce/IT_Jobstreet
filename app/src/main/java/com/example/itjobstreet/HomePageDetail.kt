@@ -14,40 +14,34 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.Send
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.DateRange
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalTextStyle
@@ -135,9 +129,10 @@ fun HomePageDetailShow() {
                 navigationIcon = {
                     IconButton(onClick = {}) {
                         Icon(
-                            Icons.Filled.ArrowBack,
+                            Icons.AutoMirrored.Filled.ArrowBack,
                             "backIcon",
-                            tint = Color.White)
+                            tint = Color.White
+                        )
                     }
                 },
 
@@ -199,13 +194,14 @@ fun HomePageDetailShow() {
                             topBar = {
                                 Box(modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(110.dp)){
-                                    Column(modifier = Modifier
-                                        .padding(start=15.dp)
-                                        .fillMaxWidth(),
+                                    .height(110.dp)) {
+                                    Column(
+                                        modifier = Modifier
+                                            .padding(start = 15.dp)
+                                            .fillMaxWidth(),
 
-                                        ){
-                                        Box(modifier = Modifier.fillMaxWidth()){
+                                        ) {
+                                        Box(modifier = Modifier.fillMaxWidth()) {
 
                                             Text(
                                                 text = "Komentar",
@@ -217,11 +213,14 @@ fun HomePageDetailShow() {
                                             )
 
                                             IconButton(
-                                                onClick = {scope.launch { sheetState.hide() }.invokeOnCompletion {
-                                                    if (!sheetState.isVisible) {
-                                                        showComment = false
-                                                    }
-                                                }},
+                                                onClick = {
+                                                    scope.launch { sheetState.hide() }
+                                                        .invokeOnCompletion {
+                                                            if (!sheetState.isVisible) {
+                                                                showComment = false
+                                                            }
+                                                        }
+                                                },
                                                 modifier = Modifier.align(alignment = Alignment.TopEnd)
                                             ) {
                                                 Icon(
@@ -232,46 +231,61 @@ fun HomePageDetailShow() {
                                             }
                                         }
 
-                                        Row{
+                                        Row {
 
                                             Button(
-                                                onClick={},
-                                                border = BorderStroke(1.dp,Color.Black),
-                                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFFFFF)),
+                                                onClick = {},
+                                                border = BorderStroke(1.dp, Color.Black),
+                                                colors = ButtonDefaults.buttonColors(
+                                                    containerColor = Color(
+                                                        0xFFFFFFFF
+                                                    )
+                                                ),
                                                 modifier = Modifier
-                                                    .clip(shape = RoundedCornerShape(50.dp)).padding(end=10.dp),
+                                                    .clip(shape = RoundedCornerShape(50.dp))
+                                                    .padding(end = 10.dp),
                                                 elevation = ButtonDefaults.buttonElevation(
                                                     defaultElevation = 15.dp
                                                 )
-                                            ){
+                                            ) {
                                                 Text(
                                                     text = "Teratas",
                                                     color = Color.Black,
                                                     style = TextStyle(
                                                         fontSize = 12.sp,
-                                                        fontWeight = FontWeight.Medium),
+                                                        fontWeight = FontWeight.Medium
+                                                    ),
                                                 )
                                             }
                                             Button(
-                                                onClick={},
-                                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFFFFF)),
+                                                onClick = {},
+                                                colors = ButtonDefaults.buttonColors(
+                                                    containerColor = Color(
+                                                        0xFFFFFFFF
+                                                    )
+                                                ),
                                                 modifier = Modifier
                                                     .clip(shape = RoundedCornerShape(50.dp)),
                                                 elevation = ButtonDefaults.buttonElevation(
                                                     defaultElevation = 15.dp
                                                 )
-                                            ){
+                                            ) {
                                                 Text(
                                                     text = "Terbaru",
                                                     color = Color.Black,
                                                     style = TextStyle(
-                                                        fontSize = 12.sp),
+                                                        fontSize = 12.sp
+                                                    ),
                                                 )
                                             }
 
                                         }
                                     }
-                                    Divider(color = Color.Gray, modifier = Modifier.fillMaxWidth().align(alignment = Alignment.BottomCenter))
+                                    HorizontalDivider(
+                                        modifier = Modifier.fillMaxWidth()
+                                            .align(alignment = Alignment.BottomCenter),
+                                        color = Color.Gray
+                                    )
                                 }
                             }
                             ,
@@ -321,9 +335,10 @@ fun HomePageDetailShow() {
                                                     }
                                                     IconButton(onClick = {}) {
                                                         Icon(
-                                                            Icons.Filled.Send,
+                                                            Icons.AutoMirrored.Filled.Send,
                                                             "send_comment",
-                                                            tint = Color.Gray)
+                                                            tint = Color.Gray
+                                                        )
                                                     }
                                                 }
 
@@ -629,14 +644,17 @@ fun HomePageDetailShow() {
                 },
                 sheetState = sheetState
             ) {
-                Box(modifier = Modifier
-                    .fillMaxWidth()
-                    .height(55.dp)){
-                    Column(modifier = Modifier
-                        .padding(start=15.dp)
+                Box(
+                    modifier = Modifier
                         .fillMaxWidth()
-                    ){
-                        Box(modifier = Modifier.fillMaxWidth()){
+                        .height(55.dp)
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .padding(start = 15.dp)
+                            .fillMaxWidth()
+                    ) {
+                        Box(modifier = Modifier.fillMaxWidth()) {
 
                             Text(
                                 text = "Masa Pendaftaran",
@@ -648,11 +666,13 @@ fun HomePageDetailShow() {
                             )
 
                             IconButton(
-                                onClick = {scope.launch { sheetState.hide() }.invokeOnCompletion {
-                                    if (!sheetState.isVisible) {
-                                        showMasaPendaftaran = false
+                                onClick = {
+                                    scope.launch { sheetState.hide() }.invokeOnCompletion {
+                                        if (!sheetState.isVisible) {
+                                            showMasaPendaftaran = false
+                                        }
                                     }
-                                }},
+                                },
                                 modifier = Modifier.align(alignment = Alignment.TopEnd)
                             ) {
                                 Icon(
@@ -664,20 +684,19 @@ fun HomePageDetailShow() {
                         }
                     }
                 }
-                Divider(color = Color.Gray, modifier = Modifier.fillMaxWidth())
-                Box(modifier = Modifier.fillMaxWidth()){
+                HorizontalDivider(modifier = Modifier.fillMaxWidth(), color = Color.Gray)
+                Box(modifier = Modifier.fillMaxWidth()) {
                     Text(
-                        text ="8 hari : 14 jam : 20 menit : 23 detik",
+                        text = "8 hari : 14 jam : 20 menit : 23 detik",
                         color = Color(0xFF12A858),
                         style = TextStyle(
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Medium
-                        ), modifier = Modifier.align(alignment = Alignment.Center).padding(start=15.dp, end=15.dp, top=15.dp, bottom=60.dp)
+                        ),
+                        modifier = Modifier.align(alignment = Alignment.Center)
+                            .padding(start = 15.dp, end = 15.dp, top = 15.dp, bottom = 60.dp)
                     )
                 }
-
-
-
 
 
             }
@@ -777,14 +796,18 @@ fun HomePageDetailShow() {
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement =Arrangement.spacedBy(
                         space = 5.dp)
-                ){
-                    Row(verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement =Arrangement.spacedBy(
-                            space = 1.dp)){
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(
+                            space = 1.dp
+                        )
+                    ) {
                         Icon(
                             Icons.Outlined.LocationOn,
                             "lokasi",
-                            tint = Color.DarkGray)
+                            tint = Color.DarkGray
+                        )
                         Text(
                             text = "Medan",
                             color = Color.Black,
@@ -793,14 +816,21 @@ fun HomePageDetailShow() {
                             )
                         )
                     }
-                    Divider(color = Color.Gray, modifier = Modifier.requiredHeight(height = 17.dp).width(1.dp))
-                    Row(verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement =Arrangement.spacedBy(
-                            space = 1.dp)){
+                    HorizontalDivider(
+                        modifier = Modifier.requiredHeight(height = 17.dp).width(1.dp),
+                        color = Color.Gray
+                    )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(
+                            space = 1.dp
+                        )
+                    ) {
                         Icon(
                             Icons.Outlined.DateRange,
                             "kalender",
-                            tint = Color.DarkGray)
+                            tint = Color.DarkGray
+                        )
 
                         ClickableText(
                             text = AnnotatedString("7-16 Oktober 2023"),
@@ -809,7 +839,7 @@ fun HomePageDetailShow() {
                                 color = Color.Black,
                                 fontSize = 13.sp
                             ),
-                            onClick = {showMasaPendaftaran = true }
+                            onClick = { showMasaPendaftaran = true }
 
                         )
 

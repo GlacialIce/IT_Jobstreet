@@ -1,12 +1,10 @@
 package com.example.itjobstreet
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,22 +25,19 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -53,28 +48,20 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
-import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.itjobstreet.ui.theme.ITJobstreetTheme
-import java.time.Clock.offset
 
 class ProfileKomentar : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,7 +93,7 @@ fun ProfileKomentarShow() {
                 navigationIcon = {
                     IconButton(onClick = { /* do something */ }) {
                         Icon(
-                            imageVector = Icons.Filled.ArrowBack,
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             tint = Color.White,
                             contentDescription = "kembali"
                         )
@@ -116,72 +103,72 @@ fun ProfileKomentarShow() {
 
         },
 
-        bottomBar = {
-            BottomAppBar(
-                modifier = Modifier
-                    .border(BorderStroke(2.dp, Color.LightGray))
-                    .height(70.dp),
-
-                containerColor = Color(0xFFFFFFFF),
-                contentColor = MaterialTheme.colorScheme.primary,
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(5.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-
-                    ) {
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Home,
-                            contentDescription = "home",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Search,
-                            contentDescription = "search",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.AddCircle,
-                            contentDescription = "add",
-                            modifier = Modifier
-                                .requiredSize(
-                                    width = 55.dp,
-                                    height = 55.dp
-                                ),
-                            tint = Color(0xFF2493DC))
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Notifications,
-                            contentDescription = "notifications",
-                            tint = Color.Gray)
-                    }
-                    IconButton(onClick = {},
-                        modifier = Modifier
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Person,
-                            contentDescription = "person",
-                            tint = Color.Gray)
-                    }
-
-                }
-            }
-        },
+//        bottomBar = {
+//            BottomAppBar(
+//                modifier = Modifier
+//                    .border(BorderStroke(2.dp, Color.LightGray))
+//                    .height(70.dp),
+//
+//                containerColor = Color(0xFFFFFFFF),
+//                contentColor = MaterialTheme.colorScheme.primary,
+//            ) {
+//                Row(
+//                    modifier = Modifier
+//                        .fillMaxSize()
+//                        .padding(5.dp),
+//                    horizontalArrangement = Arrangement.SpaceBetween,
+//                    verticalAlignment = Alignment.CenterVertically,
+//
+//                    ) {
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Home,
+//                            contentDescription = "home",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Search,
+//                            contentDescription = "search",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.AddCircle,
+//                            contentDescription = "add",
+//                            modifier = Modifier
+//                                .requiredSize(
+//                                    width = 55.dp,
+//                                    height = 55.dp
+//                                ),
+//                            tint = Color(0xFF2493DC))
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Notifications,
+//                            contentDescription = "notifications",
+//                            tint = Color.Gray)
+//                    }
+//                    IconButton(onClick = {},
+//                        modifier = Modifier
+//                    ) {
+//                        Icon(
+//                            imageVector = Icons.Filled.Person,
+//                            contentDescription = "person",
+//                            tint = Color.Gray)
+//                    }
+//
+//                }
+//            }
+//        },
 
         ) {
             innerPadding ->
@@ -389,7 +376,7 @@ fun ProfileKomentarShow() {
                 verticalArrangement = Arrangement.spacedBy(
                     space = 25.dp
                 )){
-                Column{ // Awal 1 komentar
+                Column { // Awal 1 komentar
                     /* Card Perusahaan */
                     ElevatedCard(
                         elevation = CardDefaults.cardElevation(
@@ -401,57 +388,61 @@ fun ProfileKomentarShow() {
                         modifier = Modifier
                             .fillMaxWidth()
 
-                    ){
-                        Column( modifier = Modifier.padding(15.dp), verticalArrangement = Arrangement.spacedBy(
-                            space = 10.dp)){
-                                Row(
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(15.dp),
+                            verticalArrangement = Arrangement.spacedBy(
+                                space = 10.dp
+                            )
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(
+                                    space = 5.dp
+                                ),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Box(
                                     modifier = Modifier
-                                        .fillMaxWidth(),
-                                    horizontalArrangement =Arrangement.spacedBy(
-                                        space = 5.dp
-                                    ),
-                                    verticalAlignment = Alignment.CenterVertically
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .size(56.dp)
                                 ) {
-                                    Box(
+                                    Image(
+                                        painter = painterResource(id = R.drawable.profil_image),
+                                        contentDescription = "profil_user",
                                         modifier = Modifier
-                                            .clip(RoundedCornerShape(8.dp))
-                                            .size(56.dp)
-                                    ) {
-                                        Image(
-                                            painter = painterResource(id = R.drawable.profil_image),
-                                            contentDescription = "profil_user",
-                                            modifier = Modifier
-                                                .requiredWidth(width = 56.dp)
-                                                .requiredHeight(height = 56.dp)
+                                            .requiredWidth(width = 56.dp)
+                                            .requiredHeight(height = 56.dp)
 
-                                        )
-                                    }
-                                    Column {
-                                        Text(
-                                            text = "Rusdi Tembung S.kom",
-                                            color = Color.Black,
-                                            style = TextStyle(
-                                                fontSize = 12.sp, fontWeight = FontWeight.Medium
-                                            ),
-                                        )
-                                        Text(
-                                            text = "Alumni",
-                                            color = Color(0xff616161),
-                                            style = TextStyle(
-                                                fontSize = 12.sp,
-                                                fontWeight = FontWeight.Medium
-                                            )
-                                        )
-                                        ClickableText(
-                                            text = AnnotatedString("UI/UX Programer | Telkom Indonesia"),
-                                            style = TextStyle(
-                                                color = Color(0xff2493dc),
-                                                fontSize = 12.sp
-                                            ),
-                                            onClick = {}
-                                        )
-                                    }
+                                    )
                                 }
+                                Column {
+                                    Text(
+                                        text = "Rusdi Tembung S.kom",
+                                        color = Color.Black,
+                                        style = TextStyle(
+                                            fontSize = 12.sp, fontWeight = FontWeight.Medium
+                                        ),
+                                    )
+                                    Text(
+                                        text = "Alumni",
+                                        color = Color(0xff616161),
+                                        style = TextStyle(
+                                            fontSize = 12.sp,
+                                            fontWeight = FontWeight.Medium
+                                        )
+                                    )
+                                    ClickableText(
+                                        text = AnnotatedString("UI/UX Programer | Telkom Indonesia"),
+                                        style = TextStyle(
+                                            color = Color(0xff2493dc),
+                                            fontSize = 12.sp
+                                        ),
+                                        onClick = {}
+                                    )
+                                }
+                            }
 
                             Text(
                                 text = "Perusahaan abang lagi buka lowongan untuk UI/UX Programer. Daftar aja klen nanti aku bantu.",
@@ -463,9 +454,15 @@ fun ProfileKomentarShow() {
 
                         }
                     }
-                    Divider(color = Color(0xff2493dc), modifier = Modifier.requiredHeight(height = 30.dp).width(2.dp))
-                    Row{
-                        Divider(color = Color(0xff2493dc), modifier = Modifier.requiredWidth(width = 30.dp).height(2.dp))
+                    HorizontalDivider(
+                        modifier = Modifier.requiredHeight(height = 30.dp).width(2.dp),
+                        color = Color(0xff2493dc)
+                    )
+                    Row {
+                        HorizontalDivider(
+                            modifier = Modifier.requiredWidth(width = 30.dp).height(2.dp),
+                            color = Color(0xff2493dc)
+                        )
                         /* Card Komentar */
                         ElevatedCard(
                             elevation = CardDefaults.cardElevation(
@@ -477,50 +474,50 @@ fun ProfileKomentarShow() {
                             modifier = Modifier
                                 .fillMaxWidth()
 
-                        ){Row(
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(15.dp),
+                                horizontalArrangement = Arrangement.spacedBy(
+                                    space = 5.dp
+                                ),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Box(
                                     modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(15.dp),
-                                    horizontalArrangement =Arrangement.spacedBy(
-                                        space = 5.dp
-                                    ),
-                                    verticalAlignment = Alignment.CenterVertically
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .size(56.dp)
                                 ) {
-                                    Box(
+                                    Image(
+                                        painter = painterResource(id = R.drawable.profil_image),
+                                        contentDescription = "profil_user",
                                         modifier = Modifier
-                                            .clip(RoundedCornerShape(8.dp))
-                                            .size(56.dp)
-                                    ) {
-                                        Image(
-                                            painter = painterResource(id = R.drawable.profil_image),
-                                            contentDescription = "profil_user",
-                                            modifier = Modifier
-                                                .fillMaxSize()
+                                            .fillMaxSize()
 
-                                        )
-                                    }
-                                    Column {
-                                        Text(
-                                            text = "Rusdi Tembung S.kom",
-                                            color = Color.Black,
-                                            style = TextStyle(
-                                                fontSize = 12.sp, fontWeight = FontWeight.Medium
-                                            ),
-                                        )
-                                        Text(
-                                            text = "Kerjanya dibagian apa bang?",
-                                            color = Color.Black,
-                                            style = TextStyle(
-                                                fontSize = 12.sp,
-                                            )
-                                        )
-                                    }
+                                    )
                                 }
+                                Column {
+                                    Text(
+                                        text = "Rusdi Tembung S.kom",
+                                        color = Color.Black,
+                                        style = TextStyle(
+                                            fontSize = 12.sp, fontWeight = FontWeight.Medium
+                                        ),
+                                    )
+                                    Text(
+                                        text = "Kerjanya dibagian apa bang?",
+                                        color = Color.Black,
+                                        style = TextStyle(
+                                            fontSize = 12.sp,
+                                        )
+                                    )
+                                }
+                            }
 
                         }
                     }
                 } // Akhir 1 komentar
-
             }
         }
     }
